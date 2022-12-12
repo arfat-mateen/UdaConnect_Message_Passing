@@ -9,7 +9,6 @@ from geoalchemy2.shape import to_shape
 from shapely.geometry.point import Point
 from sqlalchemy import (BigInteger, Column, Date, DateTime, ForeignKey,
                         Integer, String)
-# from sqlalchemy.dialects.postgresql import JSONB, UUID
 from sqlalchemy.ext.hybrid import hybrid_property
 
 

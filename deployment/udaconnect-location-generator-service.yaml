@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+    labels:
+        service: udaconnect-location_generator_service
+    name: udaconnect-location_generator_service
+spec:
+    ports:
+        - name: "5001"
+          port: 5001
+          targetPort: 5001
+          nodePort: 30001
+    selector:
+        service: udaconnect-location_generator_service
+    type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    labels:
+        service: udaconnect-location_generator_service
+    name: udaconnect-location_generator_service
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            service: udaconnect-location_generator_service
+    template:
+        metadata:
+            labels:
+                service: udaconnect-location_generator_service
+        spec:
+            containers:
+                - image: arfatmateen/udaconnect-location-generator-service:latest
+                  name: udaconnect-location_generator_service
+                  imagePullPolicy: Always
+            restartPolicy: Always

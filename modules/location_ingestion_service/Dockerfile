@@ -5,7 +5,7 @@ WORKDIR .
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
-EXPOSE 5006
+EXPOSE 5003
 
 COPY . .
 CMD ["python", "location_ingestion_service.py"]

@@ -5,7 +5,7 @@ WORKDIR .
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
-EXPOSE 5005
+EXPOSE 5001
 
 COPY . .
 CMD ["python", "location_generator_service.py"]

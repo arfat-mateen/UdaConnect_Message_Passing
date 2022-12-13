@@ -8,7 +8,7 @@ Sample implementation of a location generator that can be used to generate locat
 
 print("Sending sample payload...")
 
-channel = grpc.insecure_channel("localhost:5005")
+channel = grpc.insecure_channel("localhost:30007")
 stub = location_pb2_grpc.LocationServiceStub(channel)
 
 # Update this with desired payload

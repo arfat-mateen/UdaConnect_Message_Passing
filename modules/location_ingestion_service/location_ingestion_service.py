@@ -13,7 +13,7 @@ DB_NAME = os.environ["DB_NAME"]
 KAFKA_TOPIC = "locations"
 KAFKA_PATH = 'my-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092'
 
-consumer = KafkaConsumer(bootstrap_servers=KAFKA_PATH)
+consumer = KafkaConsumer(KAFKA_TOPIC, bootstrap_servers=KAFKA_PATH)
 
 def ingest_location(location):
     connection = psycopg2.connect(
@@ -32,12 +32,6 @@ def ingest_location(location):
 
     with connection.cursor() as cursor:
         try:
-            query = "INSERT INTO location (person_id, coordinate) VALUES ({}, ST_Point({}, {}));".format(
-                int(location["person_id"]),
-                location["latitude"],
-                location["longitude"],
-            )
-
             cursor.execute(query)
             print(f"Location added with person id: {location['person_id']}")
         except Exception as error:

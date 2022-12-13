@@ -1,0 +1,24 @@
+The monolithic architecture of the Udaconnect application has been replaced by a microservices approach.
+
+The following areas of the application have been refactored using the Strangler Pattern:
+
+1. Person service
+2. Connection service
+3. Location Generator & Ingestion service
+
+
+The microservice architecture has incorporated the three message passing techniques listed below:
+
+1. RESTFUL API
+2. gRPC
+3. Kafka
+
+
+For the reasons listed below, above mentioned message passing strategies are used to communicate between services:
+
+1. REST API is used for Person and Connection microservices as a message passing technique because these are resources by nature 
+and can be easily managed by REST API without introducing any additional complexity to the project. 
+Also,  the integration process with the frontend app is straightforward.
+
+2. For the Location Generator and Ingestion microservices, gRPC and Kafka are used because these are events, and a large number of mobile devices will be sending location data concurrently, which can be handled by Kafka's message queue because it can process the data scalably without loss.  
+Furthermore, performance is critical in this case, so using gRPC as a message passing technique was chosen. since it can provide higher performance, security, and strict type enforcement.

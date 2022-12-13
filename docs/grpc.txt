@@ -1,0 +1,41 @@
+gRPC Documentation
+-------------------------
+The location data should conform to the following protobuf definition:
+
+message LocationMessage {
+    int32 person_id = 1;
+    string latitude = 2;
+    string longitude = 3;
+}
+
+For example, here is a sample payload:
+{
+    "person_id": 1,
+    "latitude": "-122.3",
+    "longitude": "37.5"
+}
+
+
+The gRPC server is hosted by the 'udaconnect-location-generator-service' on port 30007.
+
+A gRPC client 'location-generator.py' has been provided in the 'location-generator-service' microservice to illustrate sending location data to the location ingestion service.
+
+
+To test, run the following commands:
+
+1. Run the project (README.md file).
+2. Create a Python environment:
+```
+    $ python -m venv .env
+    $ source env/bin/activate
+```
+
+3. Install `requirements`:
+```
+    pip install -r modules/location-generator-service/requirements.txt
+```
+
+4. Run `location-generator.py`:
+```
+    python modules/location-generator-service/location-generator.py
+```

@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "cbdf239f-11ad-43c2-8d07-faec2e3bf24b",
+		"name": "UdaConnect",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:30006/api/persons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:30006/api/persons",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "30006",
+					"path": [
+						"api",
+						"persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:30006/api/persons/6",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:30006/api/persons/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "30006",
+					"path": [
+						"api",
+						"persons",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:30006/api/persons",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"Alex\",\r\n    \"last_name\": \"Murcer\",\r\n    \"company_name\": \"HK Factorial\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:30006/api/persons",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "30006",
+					"path": [
+						"api",
+						"persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:30005/api/persons/6/connection?start_date=2020-01-01&end_date=2020-12-30&distance=5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:30005/api/persons/6/connection?start_date=2020-01-01&end_date=2020-12-30&distance=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "30005",
+					"path": [
+						"api",
+						"persons",
+						"6",
+						"connection"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2020-01-01"
+						},
+						{
+							"key": "end_date",
+							"value": "2020-12-30"
+						},
+						{
+							"key": "distance",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

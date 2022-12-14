@@ -1,0 +1,121 @@
+---
+openapi: 3.0.0
+info:
+  title: UdaConnect API
+  description: The API for the Udaconnect project.
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/ArfatMateen/UdaConnect/1.0.0
+  description: SwaggerHub API Auto Mocking
+paths:
+  /api/persons:
+    get:
+      tags:
+      - Persons
+      description: get all persons.
+      responses:
+        "200":
+          description: Retrieved all persons successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonSchema'
+    post:
+      tags:
+      - Persons
+      description: Create person.
+      responses:
+        "200":
+          description: Person created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonSchema'
+  /api/persons/{person_id}:
+    get:
+      tags:
+      - Persons
+      description: get person by id.
+      parameters:
+      - name: person_id
+        in: path
+        description: ID of the person to get.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Person retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonSchema'
+        "404":
+          description: Person with the given ID was not found.
+  /persons/{person_id}/connection:
+    get:
+      tags:
+      - Connections
+      description: Get connections by person id for within specific start & end date and distance.
+      parameters:
+      - name: start_date
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: object
+      - name: end_date
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: object
+      - name: distance
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: object
+      - name: person_id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Connections retrived successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectionSchema'
+components:
+  schemas:
+    PersonSchema:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        first_name:
+          type: string
+          example: Alex
+        last_name:
+          type: string
+          example: Murcer
+        company_name:
+          type: string
+          example: HK!
+    ConnectionSchema:
+      type: object
+      properties:
+        location:
+          type: object
+        person:
+          type: object

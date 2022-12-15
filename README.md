@@ -1,8 +1,7 @@
 <div id="top"></div>
 
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
-<!-- ![Generic badge](https://img.shields.io/badge/Project-Pass-green.svg) -->
+![Generic badge](https://img.shields.io/badge/Project-Pass-green.svg)
 
 <!-- PROJECT HEADER -->
 <br />
